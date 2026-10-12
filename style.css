@@ -8,15 +8,18 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 16px;
     background: linear-gradient(45deg, rgba(77,124,185,0.728), rgba(255,107,103,0.628));
     font-family: Arial, sans-serif;
 }
 
 .box{
-    width: 500px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: 24px;
     background-color: rgba(255,255,255,0.5);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -29,18 +32,14 @@ body{
 
 #container{
     position: relative;
-    width: 500px;
-    height: 600px;
-    margin: 5px;
+    width: min(500px, 100%);
+    height: min(600px, calc(100svh - 32px));
+    min-height: min(400px, calc(100svh - 32px));
     overflow: hidden;
 }
 
 h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.75rem, 7vw, 3rem);
     text-align: center;
 }
 
@@ -50,9 +49,10 @@ h1 {
 
 button {
     border: none;
-    width: 90px;
+    width: 92px;
+    min-height: 48px;
     border-radius: 10px;
-    font-size: 25px;
+    font-size: clamp(1.25rem, 5vw, 1.5625rem);
     padding: 8px;
     cursor: pointer;
     color: #fff;
@@ -67,8 +67,9 @@ button {
 }
 
 img{
-    width: 100px;
-    height: 100px;
+    width: clamp(58px, 18vw, 100px);
+    height: auto;
+    vertical-align: middle;
 }
 
 #target{
@@ -77,4 +78,10 @@ img{
     top: 60%;
     background-color: rgba(0, 89, 225);
     margin: 0;
+}
+
+@media (max-width: 360px) {
+    .box {
+        padding: 16px;
+    }
 }
